@@ -28,7 +28,7 @@ func InitializeConfig() error {
 
     viper.SetConfigFile(appConfigFile)
     err := viper.ReadInConfig()
-    viper.SetDefault("auth.ttl", 10) 
+    viper.SetDefault("auth.ttl", 86400) 
     viper.SetDefault("auth.authenticated", false)
     viper.SetDefault("auth.lastChecked", 0)
 
