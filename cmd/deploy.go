@@ -9,7 +9,9 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/astropatty/gbtest/auth"
+	"github.com/astropatty/gbtest/stack"
 )
+
 
 // deployCmd represents the deploy command
 var deployCmd = &cobra.Command{
@@ -23,6 +25,8 @@ var deployCmd = &cobra.Command{
 		panic(fmt.Sprintf("Unable authenticate: %s", err))
 		}
 		fmt.Println("Permissions valid!")
+		stack.SynthDataHandlerStack()
+		fmt.Println("Synthesized stack")
 	},
 }
 
