@@ -18,6 +18,7 @@ replace github.com/astropatty/gbtest/stack => ./stack
 
 require (
 	github.com/Masterminds/semver/v3 v3.3.1 // indirect
+	github.com/aws/aws-cdk-go/awscdk v1.204.0-devpreview // indirect
 	github.com/aws/aws-cdk-go/awscdk/v2 v2.192.0 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.67 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.30 // indirect
@@ -29,6 +30,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.25.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.1 // indirect
 	github.com/aws/constructs-go/constructs/v10 v10.4.2 // indirect
+	github.com/aws/constructs-go/constructs/v3 v3.4.232 // indirect
 	github.com/aws/jsii-runtime-go v1.111.0 // indirect
 	github.com/aws/smithy-go v1.22.2 // indirect
 	github.com/cdklabs/awscdk-asset-awscli-go/awscliv1/v2 v2.2.229 // indirect

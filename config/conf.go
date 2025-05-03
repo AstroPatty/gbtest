@@ -31,6 +31,7 @@ func InitializeConfig() error {
     viper.SetDefault("auth.ttl", 86400) 
     viper.SetDefault("auth.authenticated", false)
     viper.SetDefault("auth.lastChecked", 0)
+    viper.SetDefault("stacks.processing.stackName", "gbtest-processing-stack")
 
 
     if err != nil {

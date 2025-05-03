@@ -22,16 +22,34 @@ var deployCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		err := auth.CheckCredentials()
 		if err != nil {
-		panic(fmt.Sprintf("Unable authenticate: %s", err))
+			msg := fmt.Sprintf("Error while trying to authenticate: %s", err)
+			fmt.Println(msg)
+			return
 		}
 		fmt.Println("Permissions valid!")
-		stack.SynthDataHandlerStack()
+		stack.DeployStack()
 		fmt.Println("Synthesized stack")
 	},
 }
 
+var destroyCommand = &cobra.Command {
+	Use: "destroy",
+	Short: "Remove all infrastructure in AWS",
+	Long: "Remove all infrastructure in AWS. This will delete ALL DATA",
+	Run: func(cmd *cobra.Command, args[]string) {
+		err := stack.DestroyStack()
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println("Sucessfully removed resources")
+		}
+	},
+	
+}
+
 func init() {
 	rootCmd.AddCommand(deployCmd)
+	rootCmd.AddCommand(destroyCommand)
 
 	// Here you will define your flags and configuration settings.
 

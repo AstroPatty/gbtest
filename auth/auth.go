@@ -58,8 +58,14 @@ func validatePermissions(cfg *aws.Config) error {
         "arn:aws:iam::aws:policy/IAMFullAccess",
     }
     policies, err := getRequiredActions(cfg, policy_arns)
+    if err != nil {
+        return err
+    }
     stsClient := sts.NewFromConfig(*cfg)
-    ident, _ := stsClient.GetCallerIdentity(context.TODO(), &sts.GetCallerIdentityInput{})
+    ident, err := stsClient.GetCallerIdentity(context.TODO(), &sts.GetCallerIdentityInput{})
+    if err != nil {
+        return err
+    }
 
     iamClient := iam.NewFromConfig(*cfg)
     out, err := iamClient.SimulatePrincipalPolicy(context.TODO(), &iam.SimulatePrincipalPolicyInput{
